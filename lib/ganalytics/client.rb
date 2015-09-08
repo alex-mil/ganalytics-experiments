@@ -2,10 +2,8 @@ module GAnalytics
   class Client
     include GAnalytics::OAuth2::Utils
 
-    attr_accessor :analytics_admin
-
     def initialize
-      @analytics_admin ||= GAnalytics::AnalyticsAdmin.new
+      @analytics_admin ||= GAnalytics::AnalyticsAdmin.new GAnalytics.account, GAnalytics.property, GAnalytics.view
       @google_oauth ||= GAnalytics::OAuth2::Server.new
     end
 
@@ -53,6 +51,8 @@ module GAnalytics
     end
 
     private
+
+    attr_reader :analytics_admin
 
     def headers
       {'Content-Type' => 'application/json', 'Authorization' => "OAuth #{@google_oauth.access_token}"}

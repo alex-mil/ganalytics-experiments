@@ -79,6 +79,30 @@ module GAnalytics
     @@http_timeout = value
   end
 
+  def account
+    @@account
+  end
+
+  def account=(value)
+    @@account = value
+  end
+
+  def property
+    @@property
+  end
+
+  def property=(value)
+    @@property = value
+  end
+
+  def view
+    @@view
+  end
+
+  def view=(value)
+    @@view = value
+  end
+
   module OAuth2
     extend self
 
