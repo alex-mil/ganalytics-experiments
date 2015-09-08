@@ -1,0 +1,24 @@
+PATH
+  remote: .
+  specs:
+    ga-experiments (1.0.0)
+      httparty (~> 0.13)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    httparty (0.13.5)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
+    json (1.8.3)
+    multi_xml (0.5.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  ga-experiments!
+  httparty (~> 0.13)
+
+BUNDLED WITH
+   1.10.6

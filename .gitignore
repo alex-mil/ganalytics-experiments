@@ -1,0 +1,51 @@
+.DS_Store
+# Thumbnails
+._*
+.rbenv-gemsets
+.ruby-version
+.ruby-gemset
+.rspec
+.rvmrc
+.sass-cache
+*.rbc
+**.orig
+capybara-*.html
+pickle-email-*.html
+rerun.txt
+**.sublime-project
+**.sublime-workspace
+/.idea
+/.project
+/.settings
+/assets/tests
+/config/rollbar.yml
+/coverage/
+/db/dump
+/lib/trash
+/lib/bundler/man
+/public/system
+/solr
+/spec/tmp
+
+# Documentation cache and generated files:
+/.yardoc/
+/_yardoc/
+/doc/
+/rdoc/
+
+# Environment normalisation:
+/.bundle
+/vendor/bundle
+
+# Ignore the default SQLite database:
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
+# Ignore all logfiles and temp files:
+/log
+/tmp
+
+# Ignore builded packages
+/pkg/*.gem
+
+coverage
