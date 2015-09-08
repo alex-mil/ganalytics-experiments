@@ -2,10 +2,8 @@ module GAnalytics
   class Client
     include GAnalytics::OAuth2::Utils
 
-    attr_accessor :analytics_admin
-
     def initialize
-      @analytics_admin ||= GAnalytics::AnalyticsAdmin.new
+      @analytics_admin ||= GAnalytics::AnalyticsAdmin.new GAnalytics.account, GAnalytics.property, GAnalytics.view
       @google_oauth ||= GAnalytics::OAuth2::Server.new
     end
 
@@ -24,7 +22,7 @@ module GAnalytics
         }
       else
         puts "\t-- ERROR -- : GAnalytics::Client = #{http_response.parsed_response}"
-        raise exception("GAnalytics::Client = #{response.code} #{http_response.parsed_response}")
+        raise exception("GAnalytics::Client = #{http_response.code} #{http_response.parsed_response}")
       end
     end
 
@@ -44,7 +42,7 @@ module GAnalytics
           }
         else
           puts "\t-- ERROR -- : GAnalytics::Client = #{http_response.parsed_response}"
-          raise exception("GAnalytics::Client = #{response.code} #{http_response.parsed_response}")
+          raise exception("GAnalytics::Client = #{http_response.code} #{http_response.parsed_response}")
         end
       rescue Net::ReadTimeout => exp
         puts "\t-- ERROR -- : GAnalytics::Client = #{exp.message}"
@@ -53,6 +51,8 @@ module GAnalytics
     end
 
     private
+
+    attr_reader :analytics_admin
 
     def headers
       {'Content-Type' => 'application/json', 'Authorization' => "OAuth #{@google_oauth.access_token}"}
