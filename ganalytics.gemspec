@@ -7,7 +7,7 @@ require 'ganalytics'
 Gem::Specification.new do |gem|
   gem.authors       = ['Alex Milikovski']
   gem.email         = ['alexm33@gmail.com']
-  gem.name          = 'ganalytics'
+  gem.name          = 'ganalytics-experiments'
   gem.description   = 'Manage your Google Analytics A/B tests'
   gem.summary       = 'Manage your Google Analytics A/B tests'
   gem.homepage      = ''
