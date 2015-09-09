@@ -27,11 +27,11 @@ module GAnalytics
             @expires_at = Time.now + expires_in if expires_in
             self
           when 401
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} #{response.parsed_response['error']['message']}"
-            raise exception("#{response.code} #{response.parsed_response['error']['message']}")
+            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
+            raise exception("#{response.code} - #{response.parsed_response}")
           else
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} #{response.parsed_response['error']}"
-            raise exception("#{response.code} #{response.parsed_response['error']}")
+            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
+            raise exception("#{response.code} - #{response.parsed_response}")
         end
       end
 
@@ -51,11 +51,11 @@ module GAnalytics
             @token_type = response['token_type']
             self
           when 401
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} #{response.parsed_response['error']['message']}"
-            raise exception("#{response.code} #{response.parsed_response['error']['message']}")
+            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
+            raise exception("#{response.code} - #{response.parsed_response}")
           else
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} #{response.parsed_response['error']}"
-            raise exception("#{response.code} #{response.parsed_response['error']}")
+            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
+            raise exception("#{response.code} - #{response.parsed_response}")
         end
       end
     end
