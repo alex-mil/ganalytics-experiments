@@ -5,6 +5,7 @@ require 'ganalytics/oauth2/server'
 require 'ganalytics/oauth2/request'
 require 'ganalytics/oauth2/error'
 
+require 'ganalytics/validator'
 require 'ganalytics/client'
 require 'ganalytics/analytics_admin'
 

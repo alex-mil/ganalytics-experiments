@@ -16,6 +16,14 @@ module GAnalytics
       def http_get(url, configs = {})
         GAnalytics::OAuth2::Request.get(url, configs)
       end
+
+      def http_put(url, configs = {})
+        GAnalytics::OAuth2::Request.put(url, configs)
+      end
+
+      def http_patch(url, configs = {})
+        GAnalytics::OAuth2::Request.patch(url, configs)
+      end
     end
   end
 end

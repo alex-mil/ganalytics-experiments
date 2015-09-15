@@ -26,12 +26,9 @@ module GAnalytics
             expires_in = response['expires_in']
             @expires_at = Time.now + expires_in if expires_in
             self
-          when 401
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
-            raise exception("#{response.code} - #{response.parsed_response}")
           else
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
-            raise exception("#{response.code} - #{response.parsed_response}")
+            puts "\t-- ERROR -- | #{File.basename __FILE__}:#{__LINE__}: response status code is #{response.code}"
+            raise exception("#{File.basename __FILE__}:#{__LINE__}: #{response.parsed_response}")
         end
       end
 
@@ -50,12 +47,9 @@ module GAnalytics
             @expires_at = Time.now + expires_in if expires_in
             @token_type = response['token_type']
             self
-          when 401
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
-            raise exception("#{response.code} - #{response.parsed_response}")
           else
-            puts "\t-- ERROR -- : OAuth2 = #{response.code} - #{response.parsed_response}"
-            raise exception("#{response.code} - #{response.parsed_response}")
+            puts "\t-- ERROR -- | #{File.basename __FILE__}:#{__LINE__}: response status code is #{response.code}"
+            raise exception("#{File.basename __FILE__}:#{__LINE__}: #{response.parsed_response}")
         end
       end
     end
