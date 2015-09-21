@@ -19,7 +19,7 @@ module GAnalytics
   end
 
   def version
-    '1.1.0'
+    '1.1.1'
   end
 
   def setup
