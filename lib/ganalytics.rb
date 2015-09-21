@@ -1,5 +1,7 @@
 require 'httparty'
 
+require 'ganalytics/extensions/string'
+
 require 'ganalytics/oauth2/utils'
 require 'ganalytics/oauth2/server'
 require 'ganalytics/oauth2/request'
