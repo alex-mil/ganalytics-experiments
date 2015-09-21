@@ -43,6 +43,8 @@ module GAnalytics
         
         if http_response.ok?
           {
+            experiment_id: http_response['id'],
+            experiment_status: http_response['status'],
             snippet: http_response['snippet'].to_s.html_safe
           }
         else
