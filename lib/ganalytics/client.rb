@@ -14,7 +14,7 @@ module GAnalytics
       @google_oauth = @google_oauth.request_access_token args[:code]
 
       url = "https://www.googleapis.com/analytics/v3/management/accounts/#{analytics_admin.account}/" \
-            "webproperties/#{analytics_admin.property}/profiles/#{analytics_admin.view}/experiments"
+            "webproperties/#{analytics_admin.property}/profiles/#{analytics_admin.view}/experiments".remove_non_ascii
 
       http_response = http_post(url, body: args[:experiment].to_json, headers: headers, timeout: GAnalytics.http_timeout)
 
@@ -36,7 +36,7 @@ module GAnalytics
 
       url = "https://www.googleapis.com/analytics/v3/management/accounts/#{analytics_admin.account}/" \
             "webproperties/#{analytics_admin.property}/profiles/#{analytics_admin.view}/" \
-            "experiments/#{args[:experiment_id]}"
+            "experiments/#{args[:experiment_id]}".remove_non_ascii
 
       begin
         http_response = http_get(url, headers: headers, timeout: GAnalytics.http_timeout)
@@ -62,7 +62,7 @@ module GAnalytics
 
       url = "https://www.googleapis.com/analytics/v3/management/accounts/#{analytics_admin.account}/" \
             "webproperties/#{analytics_admin.property}/profiles/#{analytics_admin.view}/" \
-            "experiments/#{args[:experiment_id]}"
+            "experiments/#{args[:experiment_id]}".remove_non_ascii
 
       begin
         http_response = http_patch(url, body: args[:experiment].to_json, headers: headers, timeout: GAnalytics.http_timeout)

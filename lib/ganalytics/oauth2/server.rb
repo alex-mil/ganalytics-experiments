@@ -8,12 +8,12 @@ module GAnalytics
       def authorize_url
         "#{GAnalytics.google_auth_url}?client_id=#{GAnalytics.google_client_id}&" \
         "redirect_uri=#{GAnalytics.redirect_uri_for_auth_code}&scope=#{GAnalytics.google_scope_url}&" \
-        "access_type=offline&response_type=code"
+        "access_type=offline&response_type=code".remove_non_ascii
       end
 
       def request_access_token(code)
         params = "code=#{code}&client_id=#{GAnalytics.google_client_id}&client_secret=#{GAnalytics.google_secret_key}&" \
-                 "redirect_uri=#{GAnalytics.redirect_uri_for_auth_code}&grant_type=authorization_code"
+                 "redirect_uri=#{GAnalytics.redirect_uri_for_auth_code}&grant_type=authorization_code".remove_non_ascii
    
         add_header('Content-Type' => 'application/x-www-form-urlencoded')
         response = http_post(GAnalytics.google_token_url, body: params)
@@ -34,7 +34,7 @@ module GAnalytics
 
       def refresh_access_token(refresh_token)
         params = "client_id=#{GAnalytics.google_client_id}&client_secret=#{GAnalytics.google_secret_key}&" \
-                 "refresh_token=#{refresh_token}&grant_type=refresh_token"
+                 "refresh_token=#{refresh_token}&grant_type=refresh_token".remove_non_ascii
         
         add_header('Content-Type' => 'application/x-www-form-urlencoded')
         response = http_post(GAnalytics.google_token_url, body: params)
